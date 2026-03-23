@@ -645,4 +645,8 @@
     <string name="app_installed_required">No nearby device detected, please install the latest AniHyou app version on your Android phone</string>
     <string name="minimum_tag_percentage">Minimum Tag Percentage</string>
     <string name="search_my_list">Search my list…</string>
+    <string name="catppuccin_mocha">Catppuccin Mocha</string>
+    <string name="score_locked_title">Score locked</string>
+    <string name="score_locked_message">The score is only available after marking the media as Completed. Do you want to unlock scoring anyway?</string>
+    <string name="unlock_score">Unlock score</string>
 </resources>

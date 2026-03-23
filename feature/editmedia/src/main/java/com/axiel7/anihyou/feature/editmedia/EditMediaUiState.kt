@@ -37,12 +37,20 @@ data class EditMediaUiState(
     val updateSuccess: Boolean = false,
     val openDeleteDialog: Boolean = false,
     val openCustomListsDialog: Boolean = false,
+    val scoreClickCount: Int = 0,
+    val showScoreWarningDialog: Boolean = false,
+    val scoreUnlocked: Boolean = false,
 
     override val error: String? = null,
     override val isLoading: Boolean = false,
 ) : UiState() {
 
     val isNewEntry = listEntry == null
+
+    val isScoreAccessible: Boolean
+        get() = status == MediaListStatus.COMPLETED
+                || status == MediaListStatus.REPEATING
+                || scoreUnlocked
 
     fun mediaHasDuration(): Int? {
         val duration = mediaDetails?.duration()

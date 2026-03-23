@@ -34,6 +34,10 @@ class EditMediaViewModel(
 
     private val userId = defaultPreferencesRepository.userId
 
+    companion object {
+        private const val SCORE_UNLOCK_TAP_THRESHOLD = 2
+    }
+
     fun setMediaDetails(value: BasicMediaDetails) =
         mutableUiState.update { it.copy(mediaDetails = value) }
 
@@ -138,7 +142,9 @@ class EditMediaViewModel(
     }
 
     override fun onChangeScore(value: Double?) {
-        mutableUiState.update { it.copy(score = value) }
+        if (uiState.value.isScoreAccessible) {
+            mutableUiState.update { it.copy(score = value) }
+        }
     }
 
     override fun setAdvancedScore(key: String, value: Double?) {
@@ -312,6 +318,36 @@ class EditMediaViewModel(
 
     override fun setUpdateSuccess(value: Boolean) {
         mutableUiState.update { it.copy(updateSuccess = value) }
+    }
+
+    override fun onScoreTap() {
+        val current = uiState.value.scoreClickCount + 1
+        mutableUiState.update {
+            if (current >= SCORE_UNLOCK_TAP_THRESHOLD) {
+                it.copy(scoreClickCount = current, showScoreWarningDialog = true)
+            } else {
+                it.copy(scoreClickCount = current)
+            }
+        }
+    }
+
+    override fun onScoreUnlockConfirmed() {
+        mutableUiState.update {
+            it.copy(
+                scoreUnlocked = true,
+                showScoreWarningDialog = false,
+                scoreClickCount = 0
+            )
+        }
+    }
+
+    override fun onScoreUnlockDismissed() {
+        mutableUiState.update {
+            it.copy(
+                showScoreWarningDialog = false,
+                scoreClickCount = 0
+            )
+        }
     }
 
     init {
