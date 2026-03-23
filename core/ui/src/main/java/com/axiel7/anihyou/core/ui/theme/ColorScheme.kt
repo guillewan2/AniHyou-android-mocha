@@ -5,6 +5,20 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.compositeOver
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_base
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_blue
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_crust
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_lavender
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_mantle
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_mauve
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_overlay0
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_pink
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_red
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_surface0
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_surface1
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_surface2
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_subtext1
+import com.axiel7.anihyou.core.resources.catppuccin_mocha_text
 import com.axiel7.anihyou.core.resources.md_theme_dark_background
 import com.axiel7.anihyou.core.resources.md_theme_dark_error
 import com.axiel7.anihyou.core.resources.md_theme_dark_errorContainer
@@ -191,4 +205,41 @@ fun ColorScheme.toBlackScheme() = this.copy(
     surfaceContainer = Color.Black,
     surfaceContainerHigh = surfaceContainerHigh.copy(alpha = 0.5f).compositeOver(Color.Black),
     surfaceContainerHighest = surfaceContainerHighest.copy(alpha = 0.6f).compositeOver(Color.Black)
+)
+
+val CatppuccinMochaColorScheme = darkColorScheme(
+    primary = catppuccin_mocha_mauve,
+    onPrimary = catppuccin_mocha_crust,
+    primaryContainer = catppuccin_mocha_surface0,
+    onPrimaryContainer = catppuccin_mocha_lavender,
+    secondary = catppuccin_mocha_blue,
+    onSecondary = catppuccin_mocha_crust,
+    secondaryContainer = catppuccin_mocha_surface1,
+    onSecondaryContainer = catppuccin_mocha_lavender,
+    tertiary = catppuccin_mocha_pink,
+    onTertiary = catppuccin_mocha_crust,
+    tertiaryContainer = catppuccin_mocha_surface0,
+    onTertiaryContainer = catppuccin_mocha_pink,
+    error = catppuccin_mocha_red,
+    errorContainer = catppuccin_mocha_surface0,
+    onError = catppuccin_mocha_crust,
+    onErrorContainer = catppuccin_mocha_red,
+    background = catppuccin_mocha_base,
+    onBackground = catppuccin_mocha_text,
+    surface = catppuccin_mocha_base,
+    onSurface = catppuccin_mocha_text,
+    surfaceVariant = catppuccin_mocha_surface0,
+    onSurfaceVariant = catppuccin_mocha_subtext1,
+    outline = catppuccin_mocha_overlay0,
+    inverseOnSurface = catppuccin_mocha_base,
+    inverseSurface = catppuccin_mocha_text,
+    inversePrimary = catppuccin_mocha_mauve,
+    surfaceTint = catppuccin_mocha_mauve,
+    outlineVariant = catppuccin_mocha_surface2,
+    scrim = catppuccin_mocha_crust,
+    surfaceContainer = catppuccin_mocha_mantle,
+    surfaceContainerHigh = catppuccin_mocha_surface0,
+    surfaceContainerHighest = catppuccin_mocha_surface1,
+    surfaceContainerLow = catppuccin_mocha_crust,
+    surfaceContainerLowest = catppuccin_mocha_crust,
 )

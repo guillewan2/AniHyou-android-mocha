@@ -26,4 +26,7 @@ interface EditMediaEvent: UiEvent {
     fun toggleDeleteDialog(open: Boolean)
     fun deleteListEntry()
     fun setUpdateSuccess(value: Boolean)
+    fun onScoreTap()
+    fun onScoreUnlockConfirmed()
+    fun onScoreUnlockDismissed()
 }

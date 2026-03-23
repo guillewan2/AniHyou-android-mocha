@@ -1,6 +1,7 @@
 package com.axiel7.anihyou.feature.editmedia
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -164,6 +166,24 @@ private fun EditMediaSheetContent(
         )
     }
 
+    if (uiState.showScoreWarningDialog) {
+        AlertDialog(
+            onDismissRequest = { event?.onScoreUnlockDismissed() },
+            title = { Text(text = stringResource(R.string.score_locked_title)) },
+            text = { Text(text = stringResource(R.string.score_locked_message)) },
+            confirmButton = {
+                TextButton(onClick = { event?.onScoreUnlockConfirmed() }) {
+                    Text(text = stringResource(R.string.unlock_score))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { event?.onScoreUnlockDismissed() }) {
+                    Text(text = stringResource(R.string.cancel))
+                }
+            }
+        )
+    }
+
     ErrorDialogHandler(uiState, onDismiss = { event?.onErrorDisplayed() })
 
     LaunchedEffect(uiState.updateSuccess) {
@@ -294,6 +314,32 @@ private fun EditMediaSheetContent(
                         else -> Modifier.padding(start = 8.dp, top = 16.dp, end = 8.dp)
                     }
                 )
+                if (!uiState.isScoreAccessible) {
+                    Box(
+                        modifier = Modifier
+                            .matchParentSize()
+                            .clickable { event?.onScoreTap() },
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(4.dp),
+                            modifier = Modifier
+                                .padding(vertical = 8.dp, horizontal = 16.dp)
+                        ) {
+                            Icon(
+                                painter = painterResource(R.drawable.lock_24),
+                                contentDescription = stringResource(R.string.score_locked_title),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
+                            )
+                            Text(
+                                text = stringResource(R.string.score_locked_title),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
+                            )
+                        }
+                    }
+                }
             }
 
             HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))

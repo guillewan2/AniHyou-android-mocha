@@ -8,7 +8,8 @@ import com.axiel7.anihyou.core.resources.R
 enum class AppColorMode : Localizable {
     DEFAULT,
     PROFILE,
-    CUSTOM;
+    CUSTOM,
+    CATPPUCCIN_MOCHA;
 
     @Composable
     override fun localized() = stringResource(stringRes)
@@ -18,6 +19,7 @@ enum class AppColorMode : Localizable {
             DEFAULT -> R.string.default_setting
             PROFILE -> R.string.profile
             CUSTOM -> R.string.custom_color
+            CATPPUCCIN_MOCHA -> R.string.catppuccin_mocha
         }
 
     companion object {

@@ -29,6 +29,10 @@ fun AniHyouTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
+        appColorMode == AppColorMode.CATPPUCCIN_MOCHA -> {
+            CatppuccinMochaColorScheme
+        }
+
         appColorMode == AppColorMode.PROFILE || appColorMode == AppColorMode.CUSTOM -> {
             val isMonochrome = appColor != null && (appColor.isBlack || appColor.isWhite)
             dynamicColorScheme(
