@@ -78,7 +78,8 @@ fun GridUserMediaListItem(
                     BadgeScoreIndicator(
                         modifier = Modifier.align(Alignment.BottomStart),
                         score = item.basicMediaListEntry.score,
-                        scoreFormat = scoreFormat
+                        scoreFormat = scoreFormat,
+                        status = status
                     )
                 }
 

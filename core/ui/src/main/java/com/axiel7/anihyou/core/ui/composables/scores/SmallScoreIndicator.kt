@@ -18,13 +18,16 @@ import androidx.compose.ui.unit.sp
 import com.axiel7.anihyou.core.common.utils.NumberUtils.format
 import com.axiel7.anihyou.core.resources.R
 import com.axiel7.anihyou.core.ui.theme.AniHyouTheme
+import com.axiel7.anihyou.core.network.type.MediaListStatus
 
 @Composable
 fun SmallScoreIndicator(
     score: Int,
     modifier: Modifier = Modifier,
     fontSize: TextUnit = 14.sp,
+    status: MediaListStatus? = null,
 ) {
+    if (status != MediaListStatus.COMPLETED) return
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically

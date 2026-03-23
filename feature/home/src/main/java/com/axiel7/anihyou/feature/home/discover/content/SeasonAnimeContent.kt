@@ -49,7 +49,7 @@ fun SeasonAnimeContent(
                 modifier = Modifier.padding(horizontal = 8.dp),
                 subtitle = {
                     item.meanScore?.let { meanScore ->
-                        SmallScoreIndicator(score = meanScore)
+                        SmallScoreIndicator(score = meanScore, status = item.mediaListEntry?.basicMediaListEntry?.status)
                     } ?: run {
                         Spacer(modifier = Modifier.size(20.dp))
                     }

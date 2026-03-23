@@ -187,7 +187,8 @@ fun MediaItemHorizontal(
         subtitle2 = {
             SmallScoreIndicator(
                 score = score,
-                fontSize = 15.sp
+                fontSize = 15.sp,
+                status = status
             )
         },
         badgeContent = status?.let {

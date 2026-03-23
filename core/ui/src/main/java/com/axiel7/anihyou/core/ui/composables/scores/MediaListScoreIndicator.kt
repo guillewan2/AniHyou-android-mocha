@@ -30,13 +30,16 @@ import com.axiel7.anihyou.core.model.smileyOnPrimaryColor
 import com.axiel7.anihyou.core.model.smileyPrimaryColor
 import com.axiel7.anihyou.core.resources.R
 import java.util.Locale
+import com.axiel7.anihyou.core.network.type.MediaListStatus
 
 @Composable
 fun BadgeScoreIndicator(
     modifier: Modifier = Modifier,
     score: Double?,
     scoreFormat: ScoreFormat,
+    status: MediaListStatus? = null,
 ) {
+    if (status != MediaListStatus.COMPLETED) return
     Row(
         modifier = modifier
             .clip(RoundedCornerShape(topEnd = 16.dp, bottomStart = 8.dp))
@@ -106,7 +109,9 @@ fun MinimalScoreIndicator(
     score: Double?,
     scoreFormat: ScoreFormat,
     modifier: Modifier = Modifier,
+    status: MediaListStatus? = null,
 ) {
+    if (status != MediaListStatus.COMPLETED) return
     Row(
         modifier = modifier.padding(horizontal = 8.dp),
         horizontalArrangement = Arrangement.Center,

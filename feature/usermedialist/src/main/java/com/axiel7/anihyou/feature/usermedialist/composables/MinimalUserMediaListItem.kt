@@ -110,7 +110,8 @@ fun MinimalUserMediaListItem(
                 if (item.basicMediaListEntry.score?.isGreaterThanZero() == true) {
                     MinimalScoreIndicator(
                         score = item.basicMediaListEntry.score,
-                        scoreFormat = scoreFormat
+                        scoreFormat = scoreFormat,
+                        status = status
                     )
                 }
                 if (listStatus == null && status != null) {

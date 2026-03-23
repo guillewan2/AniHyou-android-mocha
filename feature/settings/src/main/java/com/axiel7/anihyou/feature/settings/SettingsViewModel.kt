@@ -70,6 +70,7 @@ class SettingsViewModel(
                     profileColor.firstOrNull()?.let { setAppColor(it) }
                 }
                 AppColorMode.CUSTOM -> {}
+                AppColorMode.CATPPUCCIN_MOCHA -> {}
             }
         }
     }

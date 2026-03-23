@@ -335,26 +335,6 @@ private fun MediaDetailsContent(
                     )
                 }
                 TextSubtitleVertical(
-                    text = "${uiState.details?.meanScore?.format().orUnknown()}%",
-                    subtitle = stringResource(R.string.mean_score),
-                    isLoading = uiState.isLoading
-                )
-                VerticalDivider(
-                    modifier = Modifier
-                        .padding(horizontal = 8.dp)
-                        .height(dividerHeight.dp)
-                )
-                TextSubtitleVertical(
-                    text = "${uiState.details?.averageScore?.format().orUnknown()}%",
-                    subtitle = stringResource(R.string.average_score),
-                    isLoading = uiState.isLoading
-                )
-                VerticalDivider(
-                    modifier = Modifier
-                        .padding(horizontal = 8.dp)
-                        .height(dividerHeight.dp)
-                )
-                TextSubtitleVertical(
                     text = uiState.details?.popularity?.format(),
                     subtitle = stringResource(R.string.popularity),
                     isLoading = uiState.isLoading

@@ -67,7 +67,8 @@ fun FollowingUserItem(
                 MinimalScoreIndicator(
                     score = score,
                     scoreFormat = scoreFormat,
-                    modifier = Modifier.width(68.dp)
+                    modifier = Modifier.width(68.dp),
+                    status = status
                 )
             } else {
                 Spacer(modifier = Modifier.width(68.dp))

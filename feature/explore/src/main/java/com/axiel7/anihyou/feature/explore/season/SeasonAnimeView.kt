@@ -234,7 +234,7 @@ private fun SeasonalGrid(
                 modifier = Modifier.wrapContentWidth(),
                 subtitle = {
                     item.meanScore?.let { meanScore ->
-                        SmallScoreIndicator(score = meanScore)
+                        SmallScoreIndicator(score = meanScore, status = item.mediaListEntry?.basicMediaListEntry?.status)
                     }
                 },
                 status = item.mediaListEntry?.basicMediaListEntry?.status,
@@ -286,7 +286,7 @@ private fun SeasonalList(
                 },
                 subtitle2 = {
                     item.meanScore?.let { meanScore ->
-                        SmallScoreIndicator(score = meanScore)
+                        SmallScoreIndicator(score = meanScore, status = item.mediaListEntry?.basicMediaListEntry?.status)
                     }
                     if (!item.genres.isNullOrEmpty()) {
                         Text(
